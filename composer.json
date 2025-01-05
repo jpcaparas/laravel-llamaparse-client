@@ -39,6 +39,7 @@
     },
     "scripts": {
         "test": "phpunit",
-        "tinker": "testbench tinker"
+        "tinker": "testbench tinker",
+        "lint": "pint"
     }
 }
