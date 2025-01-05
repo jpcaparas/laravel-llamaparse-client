@@ -11,9 +11,12 @@ use Illuminate\Support\Facades\Http;
 class LLamaparseClient
 {
     protected PendingRequest $client;
-    protected $apiKey;
-    protected $baseUrl;
-    protected $timeout;
+
+    protected string $apiKey;
+
+    protected string $baseUrl;
+
+    protected string $timeout;
 
     public function __construct()
     {
@@ -35,15 +38,15 @@ class LLamaparseClient
      */
     public function uploadFile($filePath, bool $shouldProvideStructuredOutput = true): array
     {
-        if (!File::exists($filePath)) {
+        if (! File::exists($filePath)) {
             throw new Exception("File not found at path: {$filePath}");
         }
 
-        if (!File::isFile($filePath)) {
+        if (! File::isFile($filePath)) {
             throw new Exception("Path is not a file: {$filePath}");
         }
 
-        if (!File::isReadable($filePath)) {
+        if (! File::isReadable($filePath)) {
             throw new Exception("File is not readable: {$filePath}");
         }
 

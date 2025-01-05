@@ -22,12 +22,12 @@ class LlamaparseClientTest extends TestCase
         Config::set('llamaparse.timeout', 30);
     }
 
-    public function testUploadFile(): void
+    public function test_upload_file(): void
     {
         $filePath = 'test.pdf';
         $expectedResponse = [
             'id' => '2ab0a896-561c-425c-842e-7b3b7b7b7b7b',
-            'status' => 'PENDING'
+            'status' => 'PENDING',
         ];
 
         File::shouldReceive('exists')->with($filePath)->andReturn(true);
@@ -44,7 +44,7 @@ class LlamaparseClientTest extends TestCase
         $this->assertEquals($expectedResponse, $response);
     }
 
-    public function testUploadFileThrowsExceptionWhenFileDoesNotExist(): void
+    public function test_upload_file_throws_exception_when_file_does_not_exist(): void
     {
         $filePath = 'nonexistent.pdf';
 
@@ -56,12 +56,12 @@ class LlamaparseClientTest extends TestCase
         (new LLamaparseClient)->uploadFile($filePath);
     }
 
-    public function testGetJob(): void
+    public function test_get_job(): void
     {
         $jobId = '2ab0a896-561c-425c-842e-7b3b7b7b7b7b';
         $expectedResponse = [
             'id' => $jobId,
-            'status' => 'SUCCESS'
+            'status' => 'SUCCESS',
         ];
 
         Http::fake([
@@ -73,7 +73,7 @@ class LlamaparseClientTest extends TestCase
         $this->assertEquals($expectedResponse, $response);
     }
 
-    public function testGetJobTextResult(): void
+    public function test_get_job_text_result(): void
     {
         $jobId = '2ab0a896-561c-425c-842e-7b3b7b7b7b7b';
         $expectedResponse = [
@@ -85,7 +85,7 @@ class LlamaparseClientTest extends TestCase
                 'job_auto_mode_triggered_pages' => 0,
                 'job_is_cache_hit' => false,
                 'credits_max' => 1000,
-            ]
+            ],
         ];
 
         Http::fake([
@@ -97,7 +97,7 @@ class LlamaparseClientTest extends TestCase
         $this->assertEquals($expectedResponse, $response);
     }
 
-    public function testGetJobResult(): void
+    public function test_get_job_result(): void
     {
         $jobId = '2ab0a896-561c-425c-842e-7b3b7b7b7b7b';
         $expectedResponse = [
@@ -109,7 +109,7 @@ class LlamaparseClientTest extends TestCase
                 'job_auto_mode_triggered_pages' => 0,
                 'job_is_cache_hit' => false,
                 'credits_max' => 1000,
-            ]
+            ],
         ];
 
         Http::fake([
