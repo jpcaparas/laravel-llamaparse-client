@@ -2,6 +2,8 @@
 
 ![Tests](https://github.com/jpcaparas/laravel-llamaparse-client/actions/workflows/tests.yml/badge.svg)
 
+![image](https://github.com/user-attachments/assets/7530e6e6-7ed6-4918-ad42-5e38a58ebedf)
+
 This package provides a Laravel library for interacting with the [LlamaCloud *Parsing & Transformation* API (aka *LlamaParse Cloud*)](https://www.llamaindex.ai/blog/introducing-llamacloud-and-llamaparse-af8cedf9006b) to parse PDF, XLS, and other file types into more efficient RAG context for consumption into other systems.
 
 ## Installation
