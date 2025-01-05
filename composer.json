@@ -40,6 +40,6 @@
     "scripts": {
         "test": "phpunit",
         "tinker": "testbench tinker",
-        "lint": "pint"
+        "format": "pint"
     }
 }
