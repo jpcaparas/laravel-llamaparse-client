@@ -4,6 +4,7 @@ namespace JPCaparas\LLamaparse;
 
 use Exception;
 use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 
@@ -16,9 +17,9 @@ class LLamaparseClient
 
     public function __construct()
     {
-        $this->apiKey = config('llamaparse.api_key');
-        $this->baseUrl = config('llamaparse.base_url');
-        $this->timeout = config('llamaparse.timeout');
+        $this->apiKey = Config::get('llamaparse.api_key');
+        $this->baseUrl = Config::get('llamaparse.base_url');
+        $this->timeout = Config::get('llamaparse.timeout');
 
         $this->client = Http::baseUrl($this->baseUrl)
             ->timeout($this->timeout)
@@ -47,7 +48,7 @@ class LLamaparseClient
         }
 
         $response = $this->client->asMultipart()->post('/parsing/upload', [
-            'file' => fopen($filePath, 'r'),
+            'file' => File::get($filePath),
             'structured_output' => $shouldProvideStructuredOutput,
         ]);
 
