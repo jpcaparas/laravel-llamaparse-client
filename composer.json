@@ -1,0 +1,39 @@
+{
+    "name": "jpcaparas/laravel-llamaparse-client",
+    "description": "A Laravel library for interacting with Llamaparse Cloud API to parse PDF, XLS, and other file types into more efficient RAG context.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JPCaparas",
+            "email": "jp@jpcaparas.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^8.0|^9.0|^10.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "JPCaparas\\LLamaparse\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JPCaparas\\LLamaparse\\LLamaparseServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit",
+        "tinker": "testbench tinker"
+    }
+}
