@@ -14,7 +14,8 @@ class LLamaparseServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/llamaparse.php', 'llamaparse'
+            __DIR__ . '/../config/llamaparse.php',
+            'llamaparse'
         );
 
         $this->app->singleton('llamaparse', function ($app) {
@@ -30,7 +31,7 @@ class LLamaparseServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/llamaparse.php' => config_path('llamaparse.php'),
+            __DIR__ . '/../config/llamaparse.php' => config_path('llamaparse.php'),
         ]);
     }
 }
